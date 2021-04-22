@@ -5,6 +5,7 @@ import requests
 import json
 import datetime
 import time
+import os
 
 
 # %%
@@ -95,12 +96,16 @@ def Datatotxt(x,y):
         valuex = x["list"][i]['value']
         valuey = y["list"][i]['value']
         time = y["list"][i]['collectionTime']
-        value = valuex + valuey
-        linex = 'TAGNAME=Root.CN.CCJS_BPA.BPA1.EXCEL.bondedtm'+ '\n'
-        liney = 'ITEM=VALUE,VALUE={},TIMESTAMP={},QUALITY=192'.format(value,time)+ '\n'
+        # value = valuex + valuey
+        linex = 'TAGNAME=Root.CN.EL.NatGas.FI-CS001'+ '\n'
+        liney = 'ITEM=VALUE,VALUE={},TIMESTAMP={},QUALITY=192'.format(valuex,time)+ '\n'
         new_context = linex+liney 
+        linex1 = 'TAGNAME=Root.CN.EL.NatGas.FI-CS002'+ '\n'
+        liney1= 'ITEM=VALUE,VALUE={},TIMESTAMP={},QUALITY=192'.format(valuey,time)+ '\n'
+        new_context1 = linex1+liney1
         with open("qtfs.txt","a+") as f:
             f.write(new_context)
+            f.write(new_context1)
         # print(linex,liney)
 
 
