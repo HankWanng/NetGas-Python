@@ -74,8 +74,8 @@ def confirm_login():
     # MC4272dataPC3 = Parmasdata(deviceCodes[0],'C3')   #4272压力
     # MC4272dataTC4 = Parmasdata(deviceCodes[0],'C4')   #4272温度
     # MC4272dataFC5 = Parmasdata(deviceCodes[0],'C5')   #4272流量
-    MC4272dataFC6SUM = Parmasdata(deviceCodes[0],'C6')   #4272累计流量
-    MC4273dataFC6SUM = Parmasdata(deviceCodes[1],'C6')   #4273累计流量
+    MC4272dataFC6SUM = Parmasdata(deviceCodes[0],'C6')   #4272累计流量昆仑2
+    MC4273dataFC6SUM = Parmasdata(deviceCodes[1],'C6')   #4273累计流量昆仑3
 #     C3Pdata = {'page':'10','limit':'30','startTime':'1618296802000','endTime':'1618383202000','deviceCodes':deviceCodes[0],'keys':'C3'}
     
 #     getTbHistoryValue = requests.get(
@@ -113,6 +113,7 @@ def Datatotxt(x,y):
 if __name__ == "__main__":
     headers = {"Content-Type": "application/json;charset=UTF-8"}
     x,y = confirm_login()
+    print(x)
     Datatotxt(x,y)
 
 
